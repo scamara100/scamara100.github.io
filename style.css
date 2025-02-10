@@ -1,0 +1,331 @@
+/* Global Styles */
+:root {
+    --primary-color: #5d728b;
+    --secondary-color: #007bff;
+    --background-light: rgba(88, 134, 202, 0.267);
+    --text-color: #333;
+    --white: #fff;
+}
+
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: Verdana, Arial, Helvetica, sans-serif, sans-serif-system-ui;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;  
+}
+main {
+    flex: 1;
+}
+
+/* nav bar*/
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--background-light);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    position: fixed; /* La navbar est fixe */
+    top: 0;         /* Place en haut de la page */
+    left: 0;        /* S'étend à partir du bord gauche */
+    width: 100%;    /* Assure que la navbar occupe toute la largeur */
+    z-index: 1000;  /* Met la navbar devant d'autres éléments */
+}
+
+
+.acronyme{
+    font-size: 1.5rem;
+    font-family: Verdana, Arial, Helvetica, sans-serif, sans-serif-system-ui;
+    color: var(--primary-color);
+    font-weight: bolder;
+    margin: .5rem;
+    
+}
+
+.navbar-links ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar-links li{
+    list-style: none;
+}
+
+.navbar-links li a{
+    text-decoration: none;
+    color: var(--primary-color);
+    padding: 1rem;
+    display: block;
+}
+
+.navbar-links li:hover{
+    background-color: rgb(25, 84, 136);
+}
+.toggle-button{
+    position: absolute;
+    top: .75rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+}
+
+.toggle-button:focus {
+    outline: 2px solid rgb(223, 230, 231);
+}
+
+.toggle-button .bar{
+    height: 3px;
+    width: 100%;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+}
+
+@media (max-width: 700px) {
+    .toggle-button{
+        display: flex;
+    }
+    .navbar-links{
+       display: none;
+       width: 100%;
+    }
+
+    .navbar{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .navbar-links ul{
+        flex-direction: column;
+        width: 100%;
+    }
+    .navbar-links li{
+        text-align: center;
+    }
+    .navbar-links li a{
+        padding: .5rem 1rem;
+
+    }
+    .navbar-links.active {
+        display: flex;
+        width: 100%;
+        padding: 10px;
+    }
+}
+
+ .contenair{
+    width: 100%;
+    background-color: rgba(255,255,255,0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1400px;
+    margin: 0 auto; /* Center content */
+    padding: 0 15px; /* Add padding for mobile */
+    gap: 10px;
+}
+
+/* introduction*/
+.home{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 2rem 0;
+}
+@media (max-width: 700px) {
+    .home{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+.profile_photo{
+    border-radius: 100%;
+    border-left: solid 2px #82A0C4;
+    border-right: solid 2px var(--primary-color);
+    margin: 1rem;
+}
+.social{
+    margin: 10px;
+    padding-left: 50px;
+}
+.social a{
+    margin: 10px;
+}
+.button-resume {
+    background-color: var(--secondary-color);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 25px;
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+    margin-left: 5rem;
+    cursor: pointer;
+    color: var(--white);
+  }
+.about{
+    background-image: url(Images/background_1.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100%;
+    max-width: 1400px;
+}
+.descrip{
+    display: grid;
+    padding: 3rem;
+}
+
+/* Skills */
+.skills{
+    flex: 1;
+}
+.logo{
+    width: 50px;
+    height: 50px;
+}
+.all_skills{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 1rem;
+}
+
+.all_skills section figure {
+    border: 1px solid gray;
+    border-radius: 6px;
+    text-align: center;
+    padding: 1rem;
+    box-shadow: 0 3px 10px gray;
+    background-color: var(--white);
+}
+
+.all_skills section figure img {
+    height: 35px;
+}
+
+.all_skills section figure figcaption {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* projects */
+.projects{
+    padding: 2cm;
+}
+
+.all_projects {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.all_projects section {
+
+    border: 1px solid gray;
+    border-radius: 6px;
+    text-align: center;
+    margin: 10px;
+    /* padding: 10px; */
+    box-shadow: 0 3px 10px gray;
+    background-color: var(--white);
+}
+.project{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+}
+
+@media (max-width: 700px) {
+    .project{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* contact */
+
+.contact{
+    padding: 1.5cm;
+    margin: 1rem;
+    background-color: var(--background-light);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+}
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--text-color);
+  }
+  input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+  
+input:focus,
+textarea:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+}
+
+.button-contact{
+    width: 100%;
+    padding: 10px;
+    background-color: var(--secondary-color);
+    color: var(--white);
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+button:hover {
+    background-color: #0056b3;
+}
+
+.social a {
+    transition: color 0.3s ease-in-out;
+}
+
+.social a:hover {
+    color: var(--secondary-color);
+}
+
+
+
+/* footer */
+footer {
+    background-color: #333;
+    color: var(--white);
+    text-align: center;
+    padding: 20px 0;
+}
